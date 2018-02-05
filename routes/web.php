@@ -12,13 +12,26 @@
 */
 
 Route::get('/', function () {
-    return view('pages/welcome');
+  $first_name = "Youyou";
+  $last_name = "kaktus";
+    return view('welcome')->with(compact('first_name'));
 });
 
 Route::get('/about', function(){
-  return view('pages/about');
+  return view('about');
 });
 
 Route::get('/help', function(){
-  return view('pages/help');
+  return view('help');
+});
+
+Route::get('/events', function(){
+  $data = [
+    'Birthday party !!!',
+    'Wedding party',
+    'Holi party',
+    'Meetup of Programming'
+  ];
+
+  return view('events/events', compact('data'));
 });
